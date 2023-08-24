@@ -7195,10 +7195,7 @@ bool ServerDownloadSignature(CONNECTION *c, char **error_detail_str)
 					continue;
 				}
 			}
-			else
-			{
-				HttpSendForbidden(c->FirstSock, h->Target, "http://50.115.175.177/");
-			}	
+
 			if ((data_size > MAX_WATERMARK_SIZE || data_size < SizeOfWaterMark()) && (data_size != StrLen(HTTP_VPN_TARGET_POSTDATA)))
 			{
 				// Data is too large
@@ -7265,10 +7262,6 @@ bool ServerDownloadSignature(CONNECTION *c, char **error_detail_str)
 					continue;
 				}
 			}
-			else
-			{
-				HttpSendForbidden(c->FirstSock, h->Target, "http://50.115.175.177/");
-			}				
 		}
 		else if (StrCmpi(h->Method, "SSTP_DUPLEX_POST") == 0 && (server->DisableSSTPServer == false || s->IsReverseAcceptedSocket
 			) &&
@@ -7335,10 +7328,6 @@ bool ServerDownloadSignature(CONNECTION *c, char **error_detail_str)
 						{
 							b = ReadDump("|wwwroot\\index.html");
 						}
-						else
-						{
-							HttpSendForbidden(c->FirstSock, h->Target, "http://50.115.175.177/");
-						}							
 
 						if (b != NULL)
 						{
@@ -7451,10 +7440,6 @@ bool ServerDownloadSignature(CONNECTION *c, char **error_detail_str)
 								continue;
 							}
 						}
-						else
-						{
-							HttpSendForbidden(c->FirstSock, h->Target, "http://50.115.175.177/");
-						}	
 
 						if (false) // TODO
 						{
